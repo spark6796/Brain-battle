@@ -1,1 +1,13 @@
 @import 'tailwindcss';
+
+@theme {
+
+    --font-bitcount: "Bitcount Grid Double", "sans-serif";
+
+}
+
+.bg-main {
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
+}
