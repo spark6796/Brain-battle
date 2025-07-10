@@ -336,13 +336,13 @@ function PopMessage(message, duration, permanent=false){
             </div>
             <div class="grid h-5/6 w-1/2 mx-auto">
                 {#each Object.entries(players) as [id, player]}
-                    <div class="flex mx-auto items-center h-fit border-4 w-full rounded-4xl bg-indigo-800 border-blue-950">
+                    <div class="flex mx-auto items-center h-fit border-4 w-full rounded-full bg-indigo-800 border-blue-950">
                         <img src={player.pfp} alt="IMG" class="h-1/4 w-1/4 rounded-full">
-                        <div class="flex justify-center items-center text-white text-xl w-4/6 mx-auto">
+                        <div class="flex justify-center items-center text-white text-4xl w-4/6 mx-auto">
                             {player.name}
                         </div>
-                        <button onclick={Kick(id)} class="border-4 {leader_userid == id || !im_leader ? 'hidden' : ''} hover:border-red-500 rounded-2xl text-bold bg-red-500  text-red-600">✖</button>
-                        <div class="{leader_userid == id ? '' : 'hidden'} pr-2">👑</div>
+                        <button onclick={Kick(id)} class="border-4 {leader_userid == id || !im_leader ? 'hidden' : ''} hover:border-red-500 text-3xl rounded-2xl text-bold bg-red-500  text-red-600">✖</button>
+                        <div class="{leader_userid == id ? '' : 'hidden'} text-3xl pr-2">👑</div>
                     </div>
                 {/each}
             </div>
