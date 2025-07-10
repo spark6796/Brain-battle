@@ -7,7 +7,7 @@ import { onMount } from 'svelte';
 const api = import.meta.env.VITE_BACKEND_API
 const protocol = import.meta.env.VITE_SSL_BOOL == 'TRUE' ? 'https' : 'http';
 
-let mode = $state("solo")
+let mode = $state("host")
 const pfp_list = Array.from({length: 5 + 1}, (_, i) => `pfp/${i}.jpg`);
 let current_pfp = $state(pfp_list[Math.floor(Math.random()*pfp_list.length)]);
 
@@ -18,7 +18,7 @@ async function StartGame(event){
     const username = form.querySelector('#name').value;
     const response = await fetch(`${protocol}://${api}/get_session`, {
         method: 'POST',
-        body: JSON.stringify({username}),
+        body: JSON.stringify({username,current_pfp}),
     });
     const data = await response.json();
     const response_code = response.status
@@ -42,6 +42,10 @@ async function StartGame(event){
         if (!game_id) return goto('/');
         payload.game_id = game_id;
     }
+    else {
+        payload.mode = mode
+        mode = 'host'
+    }
 
     try {
         const apiUrl = `${protocol}://${api}/${mode}`;
@@ -57,7 +61,7 @@ async function StartGame(event){
     } catch {
         goto('/');
     }
-    
+
     let main_cur = document.getElementById('cur').hidden = false
     let left_cur = document.getElementById('leftcur')
     let right_cur = document.getElementById('rightcur')
@@ -117,27 +121,32 @@ function pfp_change(direction){
     }
 
 </script>
+ 
+<div class="appwidth:hidden h-screen w-full bg-gray-950 flex justify-center items-center text-6xl text-white text-center">
+    Only for Big Screens
+</div>
 
-<div class="absolute items-center grid grid-cols-3 h-full min-w-full">
+
+<div class="hidden absolute items-center appwidth:grid grid-cols-3 h-full min-w-full">
     <img src="leftbrain.png" alt="none" class="h-1/2 w-full"/>
     <div class="h-1/2 opacity-0 w-full border-2"></div>
     <img src="rightbrain.png" alt="none" class="h-1/2 w-full"/>
 </div>
-<div id="cur" hidden class="absolute z-40 items-center grid grid-cols-2 h-full w-full overflow-hidden">
+<div id="cur" hidden class="absolute z-40 text-slate-400 items-center grid grid-cols-2 h-full w-full overflow-hidden">
     <div id="leftcur" class="bg-blue-950 border-r-8 border-gray-900 h-full w-full opacity-0">
-        <div class="flex justify-end font-bitcount text-9xl items-center w-full h-full">
+        <div class="flex justify-end font-bitcount text-7xl items-center w-full h-full">
             Brain
         </div>
     </div>
     <div id="rightcur" class="bg-blue-950 border-l-8 border-gray-900 h-full w-full opacity-0">
-        <div class="flex justify-start pl-4 font-bitcount text-9xl items-center w-full h-full">
+        <div class="flex justify-start pl-4 font-bitcount text-7xl items-center w-full h-full">
             Battle
         </div>
     </div>
 </div>
-<div class="h-screen bg-main bg-no-repeat w-full">
+<div class="h-screen hidden bg-main bg-no-repeat w-full appwidth:block">
     
-    <div class="flex items-center justify-center text-9xl text-slate-200 animate-pulse pt-5 w-full h-1/6 font-bitcount">
+    <div class="flex items-center justify-center text-6xl text-slate-200 animate-pulse pt-5 w-full h-1/6 font-bitcount">
         Brain Battle
     </div>
     <div class="w-full h-1/12 text-center font-mono text-xl text-white">
@@ -151,11 +160,7 @@ function pfp_change(direction){
             </div>
     </div>
     <div class="relative h-1/12 z-20  w-1/4 mx-auto"> 
-        <div class="inline-flex w-full text-3xl font-bold text-slate-300 bg-blue-950 rounded">
-            <button onclick={()=>{mode='solo'}} class="{mode == 'solo' ? 'border-4 border-gray-300' : ''} rounded-l w-full p-1">
-              Solo
-            </button>
-            <div class="border-2 border-blue-800"></div>
+        <div class="inline-flex w-full text-2xl font-bold text-slate-300 bg-blue-950 rounded">
             <button onclick={()=>{mode='host'}} class="{mode == 'host' ? 'border-4 border-gray-300' : ''} rounded-l w-full p-1">
               Host
             </button>
