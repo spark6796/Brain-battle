@@ -28,7 +28,7 @@ async function StartGame(event){
     }
     else
     {
-        alert('Login Failed')
+        window.alert('Login Failed')
         window.location.reload();
         return
     }
@@ -160,7 +160,7 @@ function pfp_change(direction){
             </div>
     </div>
     <div class="relative h-1/12 z-20  w-1/4 mx-auto"> 
-        <div class="inline-flex w-full text-2xl font-bold text-slate-300 bg-blue-950 rounded">
+        <div class="inline-flex w-full text-3xl font-bold text-slate-300 bg-blue-950 rounded">
             <button onclick={()=>{mode='host'}} class="{mode == 'host' ? 'border-4 border-gray-300' : ''} rounded-l w-full p-1">
               Host
             </button>
@@ -174,8 +174,8 @@ function pfp_change(direction){
         <div class="relative z-20 h-full w-full">
             <div class="flex justify-center items-center h-full w-full">
                 <form onsubmit={StartGame} class="flex h-2/3 w-1/4 items-center mx-auto gap-6">
-                    <input id="name" required  maxlength="12" placeholder="Guest" class="bg-transparent focus:bg-none placeholder-slate-400 text-2xl focus:outline-none text-white border-b-2 border-b-zinc-300 w-2/3"/>
-                    <button id="button" class="border-2 border-slate-700 font-bitcount hover:border-slate-400 bg-slate-900 w-1/3 h-1/2 text-2xl text-white rounded-lg animate-bounce">PLAY</button>
+                    <input id="name" required  maxlength="9" placeholder="Guest" class="bg-transparent text-center focus:bg-none placeholder-slate-400 text-4xl focus:outline-none text-white border-b-2 border-b-zinc-300 w-2/3"/>
+                    <button id="button" class="border-2 border-slate-700 font-bitcount hover:border-slate-400 bg-slate-900 w-fit p-4 h-fit text-3xl text-white rounded-lg animate-bounce">PLAY</button>
                 </form>
             </div>
         </div>

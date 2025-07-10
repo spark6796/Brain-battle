@@ -80,7 +80,7 @@ function Initialize(){
                 let name = data.name
                 let pfp = data.pfp
                 let userid = data.userid
-                players[userid] = {name,pfp}
+                players[userid] = {name,pfp,points:0}
                 } 
 
         else if (data.action == 'left'){
@@ -92,13 +92,13 @@ function Initialize(){
             question_categories = data.categories
             }
         else if (data.action == 'kick'){
-            alert('You were kicked')
+            window.alert('You were kicked')
             setTimeout(() => {
                 goto('/')
             }, 1000)
         }
         else if (data.action == 'leader_left'){
-            alert('Leader left the room')
+            window.alert('Leader left the room')
             setTimeout(() => {
                 goto('/')
             }, 1000)
@@ -148,7 +148,6 @@ function Initialize(){
             }
         }
         else if (data.action == 'selected'){
-            console.log(data)
             if (!players_selected.includes(data.selected)){
                 players_selected.push(data.selected)
             }
@@ -156,7 +155,7 @@ function Initialize(){
         else if (data.action == 'end'){
             PopMessage('Game Ended :)',0,true)
             sleep(2000).then(()=>{
-                alert('Thanks for Playing!!')
+                window.alert('Thanks for Playing!!')
                 goto('/')
             })
         }
@@ -175,7 +174,7 @@ function Initialize(){
 function sessionCheck(){
     session_id = sessionStorage.getItem('sessionid')
     if (session_id == null){
-        alert('Invalid Session')
+        window.alert('Invalid Session')
         goto('/')
         return
     }
@@ -388,7 +387,7 @@ function PopMessage(message, duration, permanent=false){
 
         </div>
         <div class="flex flex-col items-center justify-center h-2/3 w-full">
-            <div class="h-1/8 text-white font-bold text-2xl">CODE: {party_code}</div>
+            <div class="h-1/8 text-white font-bold text-4xl">CODE: {party_code}</div>
             <button id="start_button" disabled={!im_leader} onclick={()=>Start()} class="border-4 focus:border-blue-600 hover:border-blue-100 border-blue-400 bg-blue-900 h-1/4 rounded-2xl w-1/3 flex justify-center items-center text-white font-bold font-bitcount text-5xl">
                 Start
             </button>

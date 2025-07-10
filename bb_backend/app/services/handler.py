@@ -50,6 +50,6 @@ async def websocket_message_loop(game: GameManager, websocket: WebSocket, sessio
                 answer = data.get('answer')
                 game.evaluate_answer(session_id,answer)
                 game.turn_completed(userid)
-                await game.send_all_sockets({'selected':userid})
+                await game.send_all_sockets({'action':'selected','selected':userid})
 
 

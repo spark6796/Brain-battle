@@ -167,6 +167,9 @@ class GameManager:
         if self.started():
            if len(games[self.game_id]['sessions']) == 0:
                del games[self.game_id]
+           else:
+            self.turn_completed(userid)
+            await self.send_all_sockets({'action':'left','userid':userid})  
         else:
           await self.send_all_sockets({'action':'left','userid':userid})
         SessionManager(session_id).remove()
@@ -210,7 +213,8 @@ class GameManager:
             userid = self.get_userid(session)
             my_data['players'][userid] = {
              'pfp':SessionManager(session).get_pfp(),
-             'name':SessionManager(session).get_name()
+             'name':SessionManager(session).get_name(),
+             'points':0
              }
         return my_data
     

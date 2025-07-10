@@ -11,7 +11,7 @@ router = APIRouter()
 async def get_session(request: Request):
     try:
         data = await request.json()
-        name = data['username'][:11]
+        name = data['username'][:9]
         pfp = data['current_pfp']
         if pfp not in valid_pfps:
             pfp = random.choice(valid_pfps)
