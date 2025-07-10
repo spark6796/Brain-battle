@@ -315,7 +315,7 @@ function PopMessage(message, duration, permanent=false){
 
 </script>
 
-<div id="cur" class="absolute z-40 items-center text-slate-400 grid grid-cols-2 h-full w-full overflow-hidden">
+<div id="cur" class="absolute hidden z-40 items-center text-slate-400 appwidth:grid grid-cols-2 h-full w-full overflow-hidden">
     <div id="leftcur" class="bg-blue-950 border-r-8 border-gray-900 h-full w-full">
         <div class="flex justify-end font-bitcount text-7xl items-center w-full h-full">
             Brain
@@ -328,7 +328,7 @@ function PopMessage(message, duration, permanent=false){
     </div>
 </div>
 
-<div hidden id="PartyScreen" class="h-screen flex w-full bg-main bg-no-repeat overflow-hidden">
+<div hidden id="PartyScreen" class="hidden h-screen appwidth:flex w-full bg-main bg-no-repeat overflow-hidden">
     <div class="flex h-full w-1/2">
         <div class="flex-row justify-center h-full w-full">
             <div class="flex justify-center items-center text-4xl h-1/6 text-white font-bitcount">
@@ -404,7 +404,7 @@ function PopMessage(message, duration, permanent=false){
 
 
 
-<div hidden id="GameScreen" class="flex h-screen w-full bg-main bg-no-repeat overflow-hidden">
+<div hidden id="GameScreen" class="hidden appwidth:flex h-screen w-full bg-main bg-no-repeat overflow-hidden">
 
     <div id="popup_container" hidden class="absolute z-40 h-full backdrop-blur-md w-3/4 right-0"> 
         <div class="w-full font-bold font-bitcount text-white h-full flex justify-center items-center text-center text-6xl">

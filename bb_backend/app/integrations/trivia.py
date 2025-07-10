@@ -14,4 +14,5 @@ def get_question(categories_id_options: list) -> Question:
         question_obj['question'] = b64decode(content['results'][0]['question']).decode()
         question_obj['correct_answer'] = b64decode(content['results'][0]['correct_answer']).decode()
         question_obj['incorrect_answers'] = [b64decode(ans).decode() for ans in content['results'][0]['incorrect_answers']]
+        print(question_obj)
         return question_obj
