@@ -134,19 +134,19 @@ function pfp_change(direction){
 </div>
 <div id="cur" hidden class="absolute z-40 text-slate-400 items-center grid grid-cols-2 h-full w-full overflow-hidden">
     <div id="leftcur" class="bg-blue-950 border-r-8 border-gray-900 h-full w-full opacity-0">
-        <div class="flex justify-end font-bitcount text-7xl items-center w-full h-full">
+        <div class="flex justify-end font-bitcount text-9xl items-center w-full h-full">
             Brain
         </div>
     </div>
     <div id="rightcur" class="bg-blue-950 border-l-8 border-gray-900 h-full w-full opacity-0">
-        <div class="flex justify-start pl-4 font-bitcount text-7xl items-center w-full h-full">
+        <div class="flex justify-start pl-4 font-bitcount text-9xl items-center w-full h-full">
             Battle
         </div>
     </div>
 </div>
 <div class="h-screen hidden bg-main bg-no-repeat w-full appwidth:block">
     
-    <div class="flex items-center justify-center text-6xl text-slate-200 animate-pulse pt-5 w-full h-1/6 font-bitcount">
+    <div class="flex items-center justify-center text-8xl text-slate-200 animate-pulse pt-5 w-full h-1/6 font-bitcount">
         Brain Battle
     </div>
     <div class="w-full h-1/12 text-center font-mono text-xl text-white">

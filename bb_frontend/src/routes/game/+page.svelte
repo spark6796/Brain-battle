@@ -317,12 +317,12 @@ function PopMessage(message, duration, permanent=false){
 
 <div id="cur" class="absolute hidden z-40 items-center text-slate-400 appwidth:grid grid-cols-2 h-full w-full overflow-hidden">
     <div id="leftcur" class="bg-blue-950 border-r-8 border-gray-900 h-full w-full">
-        <div class="flex justify-end font-bitcount text-7xl items-center w-full h-full">
+        <div class="flex justify-end font-bitcount text-9xl items-center w-full h-full">
             Brain
         </div>
     </div>
     <div id="rightcur" class="bg-blue-950 border-l-8 border-gray-900 h-full w-full">
-        <div class="flex justify-start pl-4 font-bitcount text-7xl items-center w-full h-full">
+        <div class="flex justify-start pl-4 font-bitcount text-9xl items-center w-full h-full">
             Battle
         </div>
     </div>
@@ -331,7 +331,7 @@ function PopMessage(message, duration, permanent=false){
 <div hidden id="PartyScreen" class="hidden h-screen appwidth:flex w-full bg-main bg-no-repeat overflow-hidden">
     <div class="flex h-full w-1/2">
         <div class="flex-row justify-center h-full w-full">
-            <div class="flex justify-center items-center text-4xl h-1/6 text-white font-bitcount">
+            <div class="flex justify-center items-center text-6xl h-1/6 text-white font-bitcount">
                 PLAYERS {Object.entries(players).length}/5
             </div>
             <div class="grid h-5/6 w-1/2 mx-auto">
@@ -356,7 +356,7 @@ function PopMessage(message, duration, permanent=false){
     <div class="h-full w-1/2">
         <div class="h-1/3 justify-between items-center w-full">
             
-            <button onclick={()=>category_dropdown_boolean=!category_dropdown_boolean} class="group border-4 mt-10 mx-auto border-blue-400 bg-blue-900 h-1/3 rounded-2xl w-5/6 flex justify-center items-center text-white font-bold font-bitcount text-xl">
+            <button onclick={()=>category_dropdown_boolean=!category_dropdown_boolean} class="group border-4 mt-10 mx-auto border-blue-400 bg-blue-900 h-1/3 rounded-2xl w-5/6 flex justify-center items-center text-white font-bold font-bitcount text-3xl">
                 Select Questions Category
                 <svg class="w-2.5 h-2.5 ms-3 {category_dropdown_boolean ? "rotate-180" : ''}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -372,7 +372,7 @@ function PopMessage(message, duration, permanent=false){
                                     <div class="flex items-center h-5">
                                         <input onclick={()=>{question_categories[category]=!enabled;category_change_trigger++}} checked={enabled} disabled={!im_leader} id="category-{category}-checkbox"  type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                     </div>
-                                    <div class="ms-2 text-sm">
+                                    <div class="ms-2 text-lg">
                                         <label for="category-{category}-checkbox" class="font-medium text-gray-300">
                                             {category}
                                         </label>
@@ -389,7 +389,7 @@ function PopMessage(message, duration, permanent=false){
         </div>
         <div class="flex flex-col items-center justify-center h-2/3 w-full">
             <div class="h-1/8 text-white font-bold text-2xl">CODE: {party_code}</div>
-            <button id="start_button" disabled={!im_leader} onclick={()=>Start()} class="border-4 focus:border-blue-600 border-blue-400 bg-blue-900 h-1/4 rounded-2xl w-1/3 flex justify-center items-center text-white font-bold font-bitcount text-3xl">
+            <button id="start_button" disabled={!im_leader} onclick={()=>Start()} class="border-4 focus:border-blue-600 hover:border-blue-100 border-blue-400 bg-blue-900 h-1/4 rounded-2xl w-1/3 flex justify-center items-center text-white font-bold font-bitcount text-5xl">
                 Start
             </button>
 
@@ -407,7 +407,7 @@ function PopMessage(message, duration, permanent=false){
 <div hidden id="GameScreen" class="hidden appwidth:flex h-screen w-full bg-main bg-no-repeat overflow-hidden">
 
     <div id="popup_container" hidden class="absolute z-40 h-full backdrop-blur-md w-3/4 right-0"> 
-        <div class="w-full font-bold font-bitcount text-white h-full flex justify-center items-center text-center text-6xl">
+        <div class="w-full font-bold font-bitcount text-white h-full flex justify-center items-center text-center text-8xl">
             {pop_up_message}
         </div>
     </div>
@@ -416,23 +416,23 @@ function PopMessage(message, duration, permanent=false){
             <div class="flex items-center border-b-4 border-blue-800 h-1/8 w-full text-white text-4xl">
                 <img src="favicon.png" alt='none' class="rounded-full h-full w-1/4"/>
                 <div class="flex justify-center items-center h-full w-3/4">
-                    <div class="flex text-2xl justify-center items-center border-4 text-slate-200 bg-blue-900 border-blue-500 font-bold font-serif w-3/4 rounded-2xl">
+                    <div class="flex justify-center items-center border-4 text-slate-200 bg-blue-900 border-blue-500 font-bold font-serif w-3/4 rounded-2xl">
                         {round_number}/10
                     </div>
                 </div>    
 
-                <div class="flex justify-center items-center border-4 w-1/3 h-2/3 font-bold text-white text-xl  bg-blue-600 border-red-600 rounded-full">
+                <div class="flex justify-center items-center border-4 w-1/3 h-2/3 font-bold text-white text-3xl  bg-blue-600 border-red-600 rounded-full">
                     {time_left}</div>                                   
             </div>
             
-            <div class="flex justify-center font-bitcount text-2xl items-center text-white border-white h-1/10 w-full">
+            <div class="flex justify-center font-bitcount text-4xl items-center text-white border-white h-1/10 w-full">
                 LEADERBOARD
             </div>
             <!-- ----------- PLAYERS  -->
 
 
             {#each Object.entries(players) as [id, player]}
-                <div class="flex mt-2 items-center h-1/8 w-full text-white text-xl {round_ended == false ? (players_selected.includes(id) ? 'border-2 border-yellow-500' : '') : ''}  {round_ended ? (player_won_round.includes(id) ? 'border-2 border-green-500' : 'border-2 border-red-500') : ''} rounded-full ">
+                <div class="flex mt-2 items-center h-1/8 w-full text-white text-3xl {round_ended == false ? (players_selected.includes(id) ? 'border-2 border-yellow-500' : '') : ''}  {round_ended ? (player_won_round.includes(id) ? 'border-2 border-green-500' : 'border-2 border-red-500') : ''} rounded-full ">
                     <img src="{player.pfp}" alt='none' class="rounded-full h-full w-1/4"/>
                     <div class="truncate text-center h-1/2 w-3/4">
                         {player.name}
@@ -452,14 +452,14 @@ function PopMessage(message, duration, permanent=false){
 
     <div class="flex-row h-full w-full">
         <div class="flex flex-col justify-end items-center text-slate-200 font-bold h-1/3 w-full">
-            <div class="border-3 border-blue-950 m-2 my-auto rounded-lg px-5 p-2 text-xl w-fit font-mono text-center bg-blue-900">
+            <div class="border-3 border-blue-950 m-2 my-auto rounded-lg px-5 p-2 text-3xl w-fit font-mono text-center bg-blue-900">
                 {question}
             </div>
         </div>
         <div class="grid grid-cols-2 grid-rows-2 w-full h-2/3 border-white">
         {#each options as option}
                 <div class="flex justify-center items-center">
-                        <button disabled={options_disabled} onclick="{()=>SendOption(option)}" class="border-3 focus:border-yellow-400 p-4 w-fit mx-4 min-w-1/2 h-fit rounded-lg {round_ended ? (correct_option == option ? 'bg-green-500': 'bg-red-600'): 'bg-indigo-950'} {option_selected == option ? 'border-yellow-400' : null} {options_disabled ? 'grayscale-75' : 'hover:border-blue-300'} text-center border-blue-900 shadow-2xl shadow-black text-xl text-slate-200">{option}</button>
+                        <button disabled={options_disabled} onclick="{()=>SendOption(option)}" class="border-3 focus:border-yellow-400 p-4 w-fit mx-4 min-w-1/2 h-fit rounded-lg {round_ended ? (correct_option == option ? 'bg-green-500': 'bg-red-600'): 'bg-indigo-950'} {option_selected == option ? 'border-yellow-400' : null} {options_disabled ? 'grayscale-75' : 'hover:border-blue-300'} text-center border-blue-900 shadow-2xl shadow-black text-3xl text-slate-200">{option}</button>
                 </div>
         {/each}
         </div>
