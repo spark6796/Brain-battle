@@ -1,9 +1,8 @@
 @import 'tailwindcss';
 
 @theme {
-    --breakpoint-appwidth: 75rem;
+    --breakpoint-appwidth: 50rem;
     --font-bitcount: "Bitcount Grid Double", "sans-serif";
-
 }
 
 .bg-main {
