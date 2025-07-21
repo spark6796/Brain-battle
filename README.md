@@ -1,5 +1,5 @@
 # 🧠 Brain Battle — Real-Time Multiplayer Trivia Game
-Challenge your friends, race the clock, and prove who's the smartest in the room.
+Challenge your friends, race the clock and prove who's the smartest in the room.
 
 Brain Battle is a fast, fun, and competitive quiz game where one player hosts, others join, and everyone answers live trivia questions before the timer runs out.
 
